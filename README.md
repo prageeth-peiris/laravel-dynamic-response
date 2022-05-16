@@ -1,10 +1,3 @@
-# Very short description of the package
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/prageeth-peiris/laravel-dynamic-response.svg?style=flat-square)](https://packagist.org/packages/prageeth-peiris/laravel-dynamic-response)
-[![Total Downloads](https://img.shields.io/packagist/dt/prageeth-peiris/laravel-dynamic-response.svg?style=flat-square)](https://packagist.org/packages/prageeth-peiris/laravel-dynamic-response)
-![GitHub Actions](https://github.com/prageeth-peiris/laravel-dynamic-response/actions/workflows/main.yml/badge.svg)
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
 ## Installation
 
@@ -17,14 +10,43 @@ composer require prageeth-peiris/laravel-dynamic-response
 ## Usage
 
 ```php
-// Usage description here
+
+in your controller use LaravelDynamicResponseFacade
+
+class myController extends Controller{
+
+
+  public function all(){
+  
+  $builderObject = Post::where('author','test')->select('*');
+   
+   return  LaravelDynamicResponseFacade::send($builderObject);
+  
+  }
+
+
+}
+
 ```
+And in the request you must specify responseFormat query parameter <br>
+example : http://test.local?responseFormat=table
+
+Supported Formats : 
+
+- table
+- csv
 
 ### Testing
 
 ```bash
 composer test
 ```
+
+### Dependencies
+
+- PHP 8.1
+- Laravel 8
+- https://spatie.be/docs/laravel-data/v1/introduction
 
 ### Changelog
 
