@@ -4,6 +4,7 @@ namespace PrageethPeiris\LaravelDynamicResponse;
 
 use Illuminate\Support\ServiceProvider;
 
+
 class LaravelDynamicResponseServiceProvider extends ServiceProvider
 {
     /**
@@ -52,9 +53,14 @@ class LaravelDynamicResponseServiceProvider extends ServiceProvider
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-dynamic-response');
 
+
+
         // Register the main class to use with the facade
         $this->app->singleton('laravel-dynamic-response', function () {
             return new LaravelDynamicResponse;
         });
+
+
+
     }
 }
