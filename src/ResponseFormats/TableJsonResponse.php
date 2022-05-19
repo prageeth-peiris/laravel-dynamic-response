@@ -16,12 +16,6 @@ class TableJsonResponse extends BaseJsonResponse
     {
 
 
-
-        if(!$this->passedResource instanceof Builder){
-            throw new \Exception("passed resource is not a query builder");
-        }
-
-
         return [
             'data' => $this->passedResource->get(),
             'totalRows' => $this->passedResource->count()
